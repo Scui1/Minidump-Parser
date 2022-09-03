@@ -1,5 +1,5 @@
 #include "minidumpparser.h"
-#include <minidumpapiset.h>
+//#include <minidumpapiset.h>
 
 void Dumper()
 {
@@ -8,19 +8,19 @@ void Dumper()
 	if (!procHandle)
 		return;
 
-	HANDLE dumpFile = CreateFileA("B:\\Trash\\csgodump1.dmp", GENERIC_WRITE, FILE_SHARE_WRITE, nullptr, CREATE_ALWAYS, 0, nullptr);
+	HANDLE dumpFile = CreateFileA("B:\\temp\\csgodump1.dmp", GENERIC_WRITE, FILE_SHARE_WRITE, nullptr, CREATE_ALWAYS, 0, nullptr);
 	if (!dumpFile)
 		return;
 
-	constexpr auto dumpType = MiniDumpWithFullMemory | MiniDumpWithFullMemoryInfo;
+	/*constexpr auto dumpType = MiniDumpWithFullMemory | MiniDumpWithFullMemoryInfo;
 	if (!MiniDumpWriteDump(procHandle, processId, dumpFile, (MINIDUMP_TYPE)dumpType, nullptr, nullptr, nullptr))
-		return;
+		return;*/
 }
 
 int main() 
 {
 	//Dumper();
-	const char* a = "B:\\Trash\\csgodump1.dmp";
+	const char* a = "B:\\temp\\csgodump1.dmp";
 	const char* b = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Counter-Strike Global Offensive\\skeetcheat.mdmp";
 	MinidumpParser::ParseFile(a);
 
